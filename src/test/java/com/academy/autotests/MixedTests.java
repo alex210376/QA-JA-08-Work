@@ -36,7 +36,7 @@ public class MixedTests extends BaseTest {
         searchField.sendKeys("Dress");
         driver.findElement(By.name("submit_search")).click();
 
-        driver.findElement(By.cssSelector("#list > a")).click();
+        driver.findElement(By.cssSelector("#list > a > i")).click();
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.attributeToBe(
                         By.id("list"), "class", "selected"
@@ -48,7 +48,7 @@ public class MixedTests extends BaseTest {
         // Подождать
 
         // Проверки
-//        Thread.sleep(3000);
+        Thread.sleep(3000);
         WebElement titleElement = driver.findElement(By.cssSelector("#center_column > ul > li:nth-child(1) > div > div > div > h5 > a"));
         String titleText = titleElement.getText().trim();
         WebElement priceElement = driver.findElement(By.cssSelector("#center_column > ul > li:nth-child(1) > div > div > div.right-block > div > div > span.price.product-price"));

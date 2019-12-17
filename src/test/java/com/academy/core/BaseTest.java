@@ -21,7 +21,7 @@ public class BaseTest {
 
     @Parameters("browser")
     @BeforeClass(alwaysRun = true)
-    public void setUp(@Optional("firefox") String browser) throws IOException {
+    public void setUp(@Optional("chrome") String browser) throws IOException {
         properties = new Properties();
         // вычитываем файл *.properties из директории <root>/src/main/java/resources
         properties.load(this.getClass().getClassLoader().getResourceAsStream("common.properties"));
@@ -45,6 +45,7 @@ public class BaseTest {
         }
 
         // Неявное ожидание (Implicit Waits)
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
